@@ -202,7 +202,10 @@
 
         // Real Estate Listings
         const PROPERTIES = [
-            { id: 1, title: '5 Bedroom Detached', location: 'Lekki Phase 1', price: 350000000, type: 'Sale', typeColor: 'bg-blue-600', beds: 5, baths: 6, sqm: 600, image: 'https://images.unsplash.com/photo-1600596542815-6000255ade87?auto=format&fit=crop&w=800&q=80', tag: 'NEW' },
+            { id: 1, title: '4 Bedroom Semi-Detached', location: 'Plot 1596 Cadastral Zone A09 Guzape District', price: 142000000, type: 'Sale', typeColor: 'bg-blue-600', beds: 4, baths: 5, sqm: 300, image: '1.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { duration: '2 Months', total: 142986960, initial: 71493480, percent: '50%', balance: 71493480, monthly: 35746740 },
+            { duration: '6 Months', total: 160145395.20, initial: 48043618.56, percent: '30%', balance: 112101776.64, monthly: 18683629.44 }
+        ] },
             { id: 2, title: 'Luxury 2 Bed Apt', location: 'Victoria Island', price: 8000000, period: '/yr', type: 'Rent', typeColor: 'bg-purple-600', beds: 2, baths: 3, sqm: 120, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80', tag: 'HOT' },
             { id: 3, title: 'Commercial Office', location: 'Abuja CBD', price: 45000, period: '/sqm', type: 'Rent', typeColor: 'bg-orange-500', beds: 0, baths: 2, sqm: 150, image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80', tag: 'COMMERCIAL' },
             { id: 4, title: 'Serviced 4 Bed', location: 'Banana Island', price: 450000000, type: 'Sale', typeColor: 'bg-blue-600', beds: 4, baths: 5, sqm: 400, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80', tag: 'PREMIUM' },
@@ -343,47 +346,96 @@ function openPropertyModal(id) {
     const modal = document.getElementById('property-modal');
     const content = document.getElementById('modal-content');
 
+    // Generate Payment Plan Table HTML (Only if plans exist)
+    let paymentTableHTML = '';
+    if (prop.paymentPlans && prop.paymentPlans.length > 0) {
+        const rows = prop.paymentPlans.map(plan => `
+            <tr class="border-b border-slate-700/50 hover:bg-slate-800/50 transition">
+                <td class="p-3 text-white font-bold bg-slate-800/30">${plan.duration}</td>
+                <td class="p-3 text-slate-300 whitespace-nowrap">${formatCurrency(plan.total)}</td>
+                <td class="p-3 text-slate-300">
+                    <div class="flex flex-col">
+                        <span>${formatCurrency(plan.initial)}</span>
+                        <span class="text-[10px] text-purple-400 font-bold">${plan.percent}</span>
+                    </div>
+                </td>
+                <td class="p-3 text-slate-300 whitespace-nowrap">${formatCurrency(plan.balance)}</td>
+                <td class="p-3 text-white font-semibold whitespace-nowrap bg-purple-500/10">${formatCurrency(plan.monthly)}</td>
+            </tr>
+        `).join('');
+
+        paymentTableHTML = `
+            <div class="mt-6">
+                <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-4 h-4 text-purple-500"></i> Payment Schedule
+                </h3>
+                <div class="overflow-x-auto rounded-xl border border-slate-700 bg-slate-900/50">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-800 text-slate-400 uppercase font-bold tracking-wider">
+                            <tr>
+                                <th class="p-3">Duration</th>
+                                <th class="p-3">Total</th>
+                                <th class="p-3">Initial Deposit</th>
+                                <th class="p-3">Balance</th>
+                                <th class="p-3">Monthly</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-2 italic">* Prices subject to change based on market rates.</p>
+            </div>
+        `;
+    }
+
     // Populate Modal HTML
     content.innerHTML = `
-        <div class="relative h-64 w-full">
-            <img src="${prop.image}" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+        <div class="relative h-64 w-full group">
+            <img src="${prop.image}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
             <div class="absolute bottom-4 left-4 right-4">
-                <span class="${prop.typeColor} text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block shadow-lg">${prop.type}</span>
-                <h2 class="text-2xl font-bold text-white leading-tight">${prop.title}</h2>
-                <div class="flex items-center text-slate-300 text-sm mt-1">
+                <span class="${prop.typeColor} text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block shadow-lg border border-white/10">${prop.type}</span>
+                <h2 class="text-2xl font-bold text-white leading-tight mb-1">${prop.title}</h2>
+                <div class="flex items-center text-slate-300 text-sm">
                     <i data-lucide="map-pin" class="w-3 h-3 mr-1.5 text-purple-400"></i> ${prop.location}
                 </div>
             </div>
         </div>
         
         <div class="p-6 space-y-6">
-            <div class="flex items-center justify-between p-4 bg-slate-800/50 rounded-xl border border-slate-700/50">
-                <div>
-                    <p class="text-xs text-slate-400">Price</p>
-                    <p class="text-xl font-bold text-white">${formatCurrency(prop.price)}</p>
-                </div>
-                <div class="text-right">
-                    <p class="text-xs text-slate-400">Status</p>
-                    <p class="text-sm font-semibold text-green-400">Available</p>
-                </div>
-            </div>
-
             <div class="grid grid-cols-3 gap-3">
-                <div class="bg-slate-800 p-3 rounded-xl text-center border border-slate-700">
+                <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
                     <i data-lucide="bed" class="w-5 h-5 text-purple-500 mx-auto mb-1"></i>
                     <p class="text-lg font-bold text-white">${prop.beds}</p>
                     <p class="text-[10px] text-slate-400">Beds</p>
                 </div>
-                <div class="bg-slate-800 p-3 rounded-xl text-center border border-slate-700">
+                <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
                     <i data-lucide="bath" class="w-5 h-5 text-blue-500 mx-auto mb-1"></i>
                     <p class="text-lg font-bold text-white">${prop.baths}</p>
                     <p class="text-[10px] text-slate-400">Baths</p>
                 </div>
-                <div class="bg-slate-800 p-3 rounded-xl text-center border border-slate-700">
+                <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
                     <i data-lucide="maximize" class="w-5 h-5 text-orange-500 mx-auto mb-1"></i>
                     <p class="text-lg font-bold text-white">${prop.sqm}</p>
                     <p class="text-[10px] text-slate-400">Sqm</p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gradient-to-r from-slate-800 to-slate-800/50 rounded-xl border border-slate-700/50">
+                <div>
+                    <p class="text-xs text-slate-400 mb-0.5">Total Package Price</p>
+                    <p class="text-xl font-bold text-white">${formatCurrency(prop.price)}</p>
+                </div>
+                <div class="text-right">
+                    <div class="flex items-center gap-1.5 bg-green-500/10 px-2 py-1 rounded-lg border border-green-500/20">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        <span class="text-xs font-bold text-green-400">Available</span>
+                    </div>
                 </div>
             </div>
 
@@ -394,16 +446,14 @@ function openPropertyModal(id) {
                     Perfect for families or investors looking for high ROI. Features modern amenities, 24/7 power supply, and top-tier security.
                 </p>
             </div>
+
+            ${paymentTableHTML}
         </div>
     `;
 
     // Show Modal
     modal.classList.remove('hidden');
-    
-    // Disable background scrolling
     document.body.style.overflow = 'hidden';
-    
-    // Refresh Icons inside modal
     lucide.createIcons();
 }
 
