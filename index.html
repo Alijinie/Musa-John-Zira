@@ -223,8 +223,40 @@
             { duration: '18 Months', total: 18762057, initial: 3752411, percent: '20%', balance: 15009646, monthly: 833869 }
         ] },
             { id: 5, title: '3 Bedroom Apartment', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 158676720, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 3, sqm: 180, image: '5.png', tag: 'FCDA APPROVED',paymentPlans: [
-            { duration: '6 Months', total: 158676720, initial: 47603016, percent: '30%', balance: 111073704, monthly: 18512284 },
-            { duration: '12 Months', total: 190412064, initial: 57123619, percent: '30%', balance: 133289045, monthly: 11107420 }
+            { 
+            duration: '6 Months', 
+            total: 158676720, 
+            initial: 47603016, 
+            percent: '30%', 
+            balance: 111073704, 
+            // Since this plan varies (15% then 10%), we use a schedule array
+            schedule: [
+                { month: 'Month 0', amount: 47603016, note: '30% Initial' },
+                { month: 'Month 1', amount: 23801508, note: '15%' },
+                { month: 'Month 2', amount: 23801508, note: '15%' },
+                { month: 'Month 3', amount: 15867672, note: '10%' },
+                { month: 'Month 4', amount: 15867672, note: '10%' },
+                { month: 'Month 5', amount: 15867672, note: '10%' },
+                { month: 'Month 6', amount: 15867672, note: '10%' }
+            ],
+            monthly: 18512284 // Kept as an average for backward compatibility
+        },
+        { 
+            duration: '12 Months', 
+            total: 190412064, 
+            initial: 57123619.20, 
+            percent: '30%', 
+            balance: 133288444.80, 
+            // This plan is Quarterly, not monthly
+            schedule: [
+                { month: 'Month 0', amount: 57123619.20, note: '30% Initial' },
+                { month: 'Month 3', amount: 38082412.80, note: '20%' },
+                { month: 'Month 6', amount: 38082412.80, note: '20%' },
+                { month: 'Month 9', amount: 28561809.60, note: '15%' },
+                { month: 'Month 12', amount: 28561809.60, note: '15%' }
+            ],
+            monthly: 11107370.40 // Kept as an average for backward compatibility
+        }
             
         ] },
             { id: 6, title: '5 Bedroom Terrace Duplex', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 310258063.4, type: 'Sale', typeColor: 'bg-purple-600', beds: 5, baths: 5, sqm: 180, image: '6.png', tag: 'FCDA APPROVED',paymentPlans: [
@@ -429,23 +461,60 @@ function openPropertyModal(id) {
     const modal = document.getElementById('property-modal');
     const content = document.getElementById('modal-content');
 
-    // Generate Payment Plan Table HTML (Only if plans exist)
+    // Generate Payment Plan Table HTML
     let paymentTableHTML = '';
     if (prop.paymentPlans && prop.paymentPlans.length > 0) {
-        const rows = prop.paymentPlans.map(plan => `
-            <tr class="border-b border-slate-700/50 hover:bg-slate-800/50 transition">
-                <td class="p-3 text-white font-bold bg-slate-800/30">${plan.duration}</td>
-                <td class="p-3 text-slate-300 whitespace-nowrap">${formatCurrency(plan.total)}</td>
-                <td class="p-3 text-slate-300">
-                    <div class="flex flex-col">
-                        <span>${formatCurrency(plan.initial)}</span>
-                        <span class="text-[10px] text-purple-400 font-bold">${plan.percent}</span>
+        
+        const rows = prop.paymentPlans.map(plan => {
+            
+            // 1. The Main Summary Row
+            const mainRow = `
+                <tr class="border-b border-slate-700/50 hover:bg-slate-800/50 transition relative z-10">
+                    <td class="p-3 text-white font-bold bg-slate-800/30 align-top">${plan.duration}</td>
+                    <td class="p-3 text-slate-300 whitespace-nowrap align-top">${formatCurrency(plan.total)}</td>
+                    <td class="p-3 text-slate-300 align-top">
+                        <div class="flex flex-col">
+                            <span>${formatCurrency(plan.initial)}</span>
+                            <span class="text-[10px] text-purple-400 font-bold">${plan.percent}</span>
+                        </div>
+                    </td>
+                    <td class="p-3 text-slate-300 whitespace-nowrap align-top">${formatCurrency(plan.balance)}</td>
+                    <td class="p-3 text-white font-semibold whitespace-nowrap bg-purple-500/10 align-top">
+                        <div class="flex flex-col">
+                            <span>${formatCurrency(plan.monthly)}</span>
+                            ${plan.schedule ? '<span class="text-[10px] text-slate-400 font-normal italic">(Average)</span>' : ''}
+                        </div>
+                    </td>
+                </tr>
+            `;
+
+            // 2. The Detailed Schedule Row (Only renders if 'schedule' exists)
+            let scheduleRow = '';
+            if (plan.schedule && plan.schedule.length > 0) {
+                const scheduleItems = plan.schedule.map(item => `
+                    <div class="flex justify-between items-center p-2 bg-slate-900/80 rounded border border-slate-700/50">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-slate-300 font-bold">${item.month}</span>
+                            <span class="text-[9px] text-purple-300 bg-purple-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">${item.note}</span>
+                        </div>
+                        <span class="text-xs text-white font-mono">${formatCurrency(item.amount)}</span>
                     </div>
-                </td>
-                <td class="p-3 text-slate-300 whitespace-nowrap">${formatCurrency(plan.balance)}</td>
-                <td class="p-3 text-white font-semibold whitespace-nowrap bg-purple-500/10">${formatCurrency(plan.monthly)}</td>
-            </tr>
-        `).join('');
+                `).join('');
+
+                scheduleRow = `
+                    <tr class="bg-slate-800/20">
+                        <td colspan="5" class="p-3 border-b border-slate-700/50">
+                            <div class="text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1">Payment Breakdown</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                ${scheduleItems}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            return mainRow + scheduleRow;
+        }).join('');
 
         paymentTableHTML = `
             <div class="mt-6">
@@ -533,13 +602,14 @@ function openPropertyModal(id) {
             ${paymentTableHTML}
         </div>
     `;
-
-    // Show Modal
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    
+    // IMPORTANT: Re-initialize icons because we injected new HTML
     lucide.createIcons();
-}
 
+    // --- FIX: SHOW THE MODAL ---
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Stop background scrolling
+}
 function closePropertyModal() {
     const modal = document.getElementById('property-modal');
     modal.classList.add('hidden');
