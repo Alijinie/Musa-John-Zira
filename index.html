@@ -156,8 +156,8 @@
                     </div>
 
                     <div class="flex justify-between items-center px-4 md:px-0 mb-6">
-                        <h2 class="text-white font-bold text-lg md:text-xl flex items-center gap-2">
-                            Properties by Mshel Homes Limited proudly promoted by Heartline Dynamics Ltd
+                        <h2 class="text-purple-300 font-bold text-lg md:text-xl flex items-center gap-2">
+                            Properties by <span class="text-yellow-300 font-bold text-lg md:text-xl flex items-center gap-2">Mshel Homes Limited</span> proudly promoted by Heartline Dynamics
                         </h2>
 
                     </div>
@@ -202,27 +202,27 @@
 
         // Real Estate Listings
         const PROPERTIES = [
-            { id: 1, title: '4 Bedroom Semi-Detached', location: 'Plot 1596 Cadastral Zone A09 Guzape District', price: 142986960, type: 'Sale', typeColor: 'bg-blue-600', beds: 4, baths: 5, sqm: 300, image: '333.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { id: 1, title: '4 Bedroom Semi-Detached', location: 'Plot 1596 Cadastral Zone A09 Guzape District', price: 142986960, type: 'KAPITAL VILLA - Estate Lands Elegant', typeColor: 'bg-purple-600', beds: 4, baths: 5, sqm: 300, image: '333.png', tag: 'FCDA APPROVED',paymentPlans: [
             { duration: '2 Months', total: 142986960, initial: 71493480, percent: '50%', balance: 71493480, monthly: 35746740 },
             { duration: '6 Months', total: 160145395.20, initial: 48043618.56, percent: '30%', balance: 112101776.64, monthly: 18683629.44 }
         ] },
-            { id: 2, title: '4 Bedroom Terrace Duplex', location: 'Plot 1596 Cadastral Zone A09 Guzape District', price: 95400000, type: 'Sale', typeColor: 'bg-purple-600', beds: 4, baths: 3, sqm: 200, image: '2.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { id: 2, title: '4 Bedroom Terrace Duplex', location: 'Plot 1596 Cadastral Zone A09 Guzape District', price: 95400000, type: 'KAPITAL VILLA - Estate Lands Hedera', typeColor: 'bg-purple-600', beds: 4, baths: 3, sqm: 200, image: '2.png', tag: 'FCDA APPROVED',paymentPlans: [
             { duration: '2 Months', total: 95400000, initial: 47700000, percent: '50%', balance: 71493480, monthly: 23850000 },
             { duration: '6 Months', total: 106848000, initial: 32054400, percent: '30%', balance: 74793600, monthly: 12465600 }
         ] },
-            { id: 3, title: '3 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 9575000, type: 'Sale', typeColor: 'bg-orange-500', beds: 3, baths: 3, sqm: 350, image: '31.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { id: 3, title: '3 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 9575000, type: 'Mshel Pent Haven', typeColor: 'bg-orange-500', beds: 3, baths: 3, sqm: 350, image: '31.png', tag: 'FCDA APPROVED',paymentPlans: [
             { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
             { duration: '8 Months', total: 10341000, initial: 3102300, percent: '30%', balance: 7238700, monthly: 904836 },
             { duration: '12 Months', total:11168280 , initial: 3350484, percent: '30%', balance: 7817796, monthly: 651483 },
             { duration: '18 Months', total: 12508474, initial: 2501695, percent: '20%', balance: 10006779, monthly: 555932 }
         ] },
-            { id: 4, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 14362000, type: 'Sale', typeColor: 'bg-blue-600', beds: 4, baths: 5, sqm: 450, image: '4.png', tag: 'PREMIUM',paymentPlans: [
+            { id: 4, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 14362000, type: 'Mshel Pent Haven', typeColor: 'bg-orange-600', beds: 4, baths: 5, sqm: 450, image: '4.png', tag: 'PREMIUM',paymentPlans: [
             { duration: '4 Months', total: 14362000, initial: 4308600, percent: '30%', balance: 10053400, monthly: 2513350 },
             { duration: '8 Months', total: 15510960, initial: 4653288, percent: '30%', balance: 108576728, monthly: 1357209 },
             { duration: '12 Months', total: 16751837, initial: 5025551, percent: '30%', balance: 11726286, monthly: 977191 },
             { duration: '18 Months', total: 18762057, initial: 3752411, percent: '20%', balance: 15009646, monthly: 833869 }
         ] },
-            { id: 5, title: '3 Bedroom Apartment', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 158676720, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 3, sqm: 180, image: '5.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { id: 5, title: '3 Bedroom Apartment', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 158676720, type: 'Signature Residence by Mshel Homes', typeColor: 'bg-green-600', beds: 3, baths: 3, sqm: 180, image: '5.png', tag: 'FCDA APPROVED',paymentPlans: [
             { 
             duration: '6 Months', 
             total: 158676720, 
@@ -244,24 +244,56 @@
         { 
             duration: '12 Months', 
             total: 190412064, 
-            initial: 57123619.20, 
+            initial: 57123619.2, 
             percent: '30%', 
-            balance: 133288444.80, 
+            balance: 133288444.8, 
             // This plan is Quarterly, not monthly
             schedule: [
-                { month: 'Month 0', amount: 57123619.20, note: '30% Initial' },
-                { month: 'Month 3', amount: 38082412.80, note: '20%' },
-                { month: 'Month 6', amount: 38082412.80, note: '20%' },
-                { month: 'Month 9', amount: 28561809.60, note: '15%' },
-                { month: 'Month 12', amount: 28561809.60, note: '15%' }
+                { month: 'Month 0', amount: 57123619.2, note: '30% Initial' },
+                { month: 'Month 3', amount: 38082412.8, note: '20%' },
+                { month: 'Month 6', amount: 38082412.8, note: '20%' },
+                { month: 'Month 9', amount: 28561809.6, note: '15%' },
+                { month: 'Month 12', amount: 28561809.6, note: '15%' }
             ],
-            monthly: 11107370.40 // Kept as an average for backward compatibility
+            monthly: 11107370.4 // Kept as an average for backward compatibility
         }
             
         ] },
-            { id: 6, title: '5 Bedroom Terrace Duplex', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 310258063.4, type: 'Sale', typeColor: 'bg-purple-600', beds: 5, baths: 5, sqm: 180, image: '6.png', tag: 'FCDA APPROVED',paymentPlans: [
-            { duration: '6 Months', total: 310258063.4, initial: 93077419, percent: '30%', balance: 217180644, monthly: 36196774 },
-            { duration: '12 Months', total: 372309676, initial: 111692903, percent: '30%', balance: 260616773 , monthly: 111692903 }
+            { id: 6, title: '5 Bedroom Terrace Duplex (REGAL)', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 310258063.4, type: 'Signature Residence by Mshel Homes', typeColor: 'bg-green-600', beds: 5, baths: 5, sqm: 180, image: '6.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { 
+            duration: '6 Months', 
+            total: 158676720, 
+            initial: 47603016, 
+            percent: '30%', 
+            balance: 111073704, 
+            // Since this plan varies (15% then 10%), we use a schedule array
+            schedule: [
+                { month: 'Month 0', amount: 47603016, note: '30% Initial' },
+                { month: 'Month 1', amount: 23801508, note: '15%' },
+                { month: 'Month 2', amount: 23801508, note: '15%' },
+                { month: 'Month 3', amount: 15867672, note: '10%' },
+                { month: 'Month 4', amount: 15867672, note: '10%' },
+                { month: 'Month 5', amount: 15867672, note: '10%' },
+                { month: 'Month 6', amount: 15867672, note: '10%' }
+            ],
+            monthly: 18512284 // Kept as an average for backward compatibility
+        },
+        { 
+            duration: '12 Months', 
+            total: 190412064, 
+            initial: 57123619.2, 
+            percent: '30%', 
+            balance: 133288444.8, 
+            // This plan is Quarterly, not monthly
+            schedule: [
+                { month: 'Month 0', amount: 57123619.2, note: '30% Initial' },
+                { month: 'Month 3', amount: 38082412.8, note: '20%' },
+                { month: 'Month 6', amount: 38082412.8, note: '20%' },
+                { month: 'Month 9', amount: 28561809.6, note: '15%' },
+                { month: 'Month 12', amount: 28561809.6, note: '15%' }
+            ],
+            monthly: 11107370.4 // Kept as an average for backward compatibility
+        }
             
         ] },
             { id: 7, title: '5 Bedroom Semi-Detached Duplex + 1BQ', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 394757922.3, type: 'Sale', typeColor: 'bg-purple-600', beds: 5, baths: 6, sqm: 300, image: '7.png', tag: 'FCDA APPROVED',paymentPlans: [
