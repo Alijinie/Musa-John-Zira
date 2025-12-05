@@ -330,23 +330,54 @@
             { duration: '12 Months', total: 2448226 , initial: 489645, percent: '30%', balance: 1958581, monthly: 163216 },
             { duration: '18 Months', total: 2652244 , initial: 530449, percent: '30%', balance: 2121795, monthly: 117878 },
         ] },
-            { id: 13, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 120000000, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 4, sqm: 250, image: '13.png', tag: 'LUXURY',paymentPlans: [
-            { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
-            { duration: '8 Months', total: 10341000, initial: 3102300, percent: '30%', balance: 7238700, monthly: 904836 },
-            { duration: '12 Months', total:11168280 , initial: 3350484, percent: '30%', balance: 7817796, monthly: 651483 },
-            { duration: '18 Months', total: 12508474, initial: 2501695, percent: '20%', balance: 10006779, monthly: 555932 }
+            { id: 13, title: '1 Bedroom Apartment', location: 'Plot 138 Kunape Bwari FCT', price: 9000000, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 1, baths: 1, sqm: 100, image: '13.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { 
+            duration: '6 Months', 
+            total: 310258063.4, 
+            initial: 93077419, 
+            percent: '30%', 
+            balance: 217180644.4, 
+            // Since this plan varies (15% then 10%), we use a schedule array
+            schedule: [
+                { month: 'Month 0', amount: 93077419, note: '30% Initial' },
+                { month: 'Month 1', amount: 46538709.5, note: '15%' },
+                { month: 'Month 2', amount: 46538709.5, note: '15%' },
+                { month: 'Month 3', amount: 31025806.3, note: '10%' },
+                { month: 'Month 4', amount: 31025806.3, note: '10%' },
+                { month: 'Month 5', amount: 31025806.3, note: '10%' },
+                { month: 'Month 6', amount: 31025806.3, note: '10%' }
+            ],
+            monthly: 51709677.20 // Kept as an average for backward compatibility
+        },
+        { 
+            duration: '12 Months', 
+            total: 372309676, 
+            initial: 111692903, 
+            percent: '30%', 
+            balance: 260616773, 
+            // This plan is Quarterly, not monthly
+            schedule: [
+                { month: 'Month 0', amount: 111692903, note: '30% Initial' },
+                { month: 'Month 3', amount: 74461935.2, note: '20%' },
+                { month: 'Month 6', amount: 74461935.2, note: '20%' },
+                { month: 'Month 9', amount: 55846451.4, note: '15%' },
+                { month: 'Month 12', amount: 55846451.4, note: '15%' }
+            ],
+            monthly: 31025806.35 // Kept as an average for backward compatibility
+        }
+            
         ] },
-            { id: 14, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 120000000, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 4, sqm: 250, image: '14.png', tag: 'LUXURY',paymentPlans: [
-            { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
-            { duration: '8 Months', total: 10341000, initial: 3102300, percent: '30%', balance: 7238700, monthly: 904836 },
-            { duration: '12 Months', total:11168280 , initial: 3350484, percent: '30%', balance: 7817796, monthly: 651483 },
-            { duration: '18 Months', total: 12508474, initial: 2501695, percent: '20%', balance: 10006779, monthly: 555932 }
+            { id: 14, title: '5 Bedroom Fully-Detached Duplex', location: 'Plot 138 Kunape Bwari FCT', price: 6890000, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 5, baths: 5, sqm: 500, image: '14.png', tag: 'FCDA APPROVED',paymentPlans: [
+            { duration: '6 Months', total: 6890000, initial: 1378000, percent: '20%', balance: 5512000, monthly: 918667 },
+            { duration: '12 Months', total: 8268000 , initial: 1653600, percent: '20%', balance: 6614400, monthly: 551200 },
+            { duration: '18 Months', total: 8957000 , initial: 1791400, percent: '20%', balance: 7165600, monthly: 398089 },
+
         ] },
-            { id: 15, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 120000000, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 4, sqm: 250, image: '15.png', tag: 'LUXURY',paymentPlans: [
-            { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
-            { duration: '8 Months', total: 10341000, initial: 3102300, percent: '30%', balance: 7238700, monthly: 904836 },
-            { duration: '12 Months', total:11168280 , initial: 3350484, percent: '30%', balance: 7817796, monthly: 651483 },
-            { duration: '18 Months', total: 12508474, initial: 2501695, percent: '20%', balance: 10006779, monthly: 555932 }
+            { id: 15, title: '4 Bedroom Terrace Duplex', location: 'Plot 138 Kunape Bwari FCT', price: 2720250, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 4, baths: 4, sqm: 200, image: '15.png', tag: 'LUXURY',paymentPlans: [
+            { duration: '6 Months', total: 2720250, initial: 544050, percent: '20%', balance: 2176200, monthly: 362700 },
+            { duration: '12 Months', total: 3264300, initial: 652860, percent: '20%', balance: 2611440, monthly: 217620 },
+            { duration: '18 Months', total: 356325 , initial: 707265, percent: '20%', balance: 2829060, monthly: 157170 },
+            
         ] },
             { id: 16, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 120000000, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 4, sqm: 250, image: '16.png', tag: 'LUXURY',paymentPlans: [
             { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
