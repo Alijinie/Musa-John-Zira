@@ -7,6 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -78,8 +79,6 @@
                         <i data-lucide="bell" class="w-5 h-5 text-slate-200"></i>
                         <span class="absolute top-1.5 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-slate-800"></span>
                     </button>
-                    
-                    
                 </div>
             </header>
 
@@ -108,60 +107,55 @@
                                         <button class="bg-white text-purple-700 px-4 py-2 rounded-lg text-xs font-bold hover:bg-purple-50 transition">Get Started</button>
                                     </div>
                                     <div class="mt-6 bg-gray-900/60 backdrop-blur-md rounded-xl p-3 flex justify-between items-center border border-white/10">
-    <div class="text-xs text-purple-100">
-        <span class="block opacity-60 mb-0.5">Mortgage?</span>
-        <span class="font-semibold text-white">Get approved in 48 hours</span>
-    </div>
-    <a href="https://wa.me/2348036732386" target="_blank" rel="noopener noreferrer" class="relative inline-block bg-white text-purple-900 px-4 py-2 rounded-lg text-xs font-bold hover:bg-purple-50 transition group decoration-0">
-        <span class="absolute -top-1 -right-1 flex h-3 w-3">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
-        </span>
-        Apply Now
-    </a>
-</div>
+                                        <div class="text-xs text-purple-100">
+                                            <span class="block opacity-60 mb-0.5">Mortgage?</span>
+                                            <span class="font-semibold text-white">Get approved in 48 hours</span>
+                                        </div>
+                                        <a href="https://wa.me/2348036732386" target="_blank" rel="noopener noreferrer" class="relative inline-block bg-white text-purple-900 px-4 py-2 rounded-lg text-xs font-bold hover:bg-purple-50 transition group decoration-0">
+                                            <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                                                <span class="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                                            </span>
+                                            Apply Now
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-4">
-    <div class="grid grid-cols-2 gap-4 h-full">
-        <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
-            <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-500 flex items-center justify-center"><i data-lucide="home" class="w-5 h-5"></i></div>
-            <span class="text-xs font-semibold text-white">Real Estate</span>
-        </div>
-
-        <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
-            <div class="w-10 h-10 rounded-full bg-orange-500/20 text-orange-500 flex items-center justify-center"><i data-lucide="hammer" class="w-5 h-5"></i></div>
-            <span class="text-xs font-semibold text-white">Construction</span>
-        </div>
-
-        <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
-            <div class="w-10 h-10 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center"><i data-lucide="trees" class="w-5 h-5"></i></div>
-            <span class="text-xs font-semibold text-white">Land</span>
-        </div>
-
-        <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
-            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center"><i data-lucide="zap" class="w-5 h-5"></i></div>
-            <span class="text-xs font-semibold text-white">Energy</span>
-        </div>
-
-        <div class="col-span-2 bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
-            <div class="w-10 h-10 rounded-full bg-lime-500/20 text-lime-500 flex items-center justify-center"><i data-lucide="sprout" class="w-5 h-5"></i></div>
-            <span class="text-xs font-semibold text-white">Agriculture</span>
-        </div>
-
-    </div>
-</div>
+                            <div class="grid grid-cols-2 gap-4 h-full">
+                                <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-500 flex items-center justify-center"><i data-lucide="home" class="w-5 h-5"></i></div>
+                                    <span class="text-xs font-semibold text-white">Real Estate</span>
+                                </div>
+                                <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
+                                    <div class="w-10 h-10 rounded-full bg-orange-500/20 text-orange-500 flex items-center justify-center"><i data-lucide="hammer" class="w-5 h-5"></i></div>
+                                    <span class="text-xs font-semibold text-white">Construction</span>
+                                </div>
+                                <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
+                                    <div class="w-10 h-10 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center"><i data-lucide="trees" class="w-5 h-5"></i></div>
+                                    <span class="text-xs font-semibold text-white">Land</span>
+                                </div>
+                                <div class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
+                                    <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-500 flex items-center justify-center"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                                    <span class="text-xs font-semibold text-white">Energy</span>
+                                </div>
+                                <div class="col-span-2 bg-slate-800/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col items-center justify-center text-center gap-2 hover:bg-slate-800 transition">
+                                    <div class="w-10 h-10 rounded-full bg-lime-500/20 text-lime-500 flex items-center justify-center"><i data-lucide="sprout" class="w-5 h-5"></i></div>
+                                    <span class="text-xs font-semibold text-white">Agriculture</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="flex justify-between items-center px-4 md:px-0 mb-6">
-    <h2 class="text-purple-300 font-bold text-sm md:text-xl flex items-center gap-2">
-        <span>
-            Properties by <span class="text-yellow-400">Mshel Homes Limited</span> proudly promoted by Heartline Dynamics
-        </span>
-    </h2>
-</div>
+                        <h2 class="text-purple-300 font-bold text-sm md:text-xl flex items-center gap-2">
+                            <span>
+                                Properties by <span class="text-yellow-400">Mshel Homes Limited</span> proudly promoted by Heartline Dynamics
+                            </span>
+                        </h2>
+                    </div>
                 </div> 
                 <div id="dynamic-content-area" class="px-4 md:px-0">
                     <div id="listings-feed" class="pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
@@ -174,28 +168,24 @@
         </nav>
 
     </div>
-<div id="property-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4">
-    <div onclick="closePropertyModal()" class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
     
-    <div class="relative bg-slate-900 w-full max-w-lg rounded-2xl border border-slate-700 shadow-2xl overflow-hidden transform transition-all scale-100 flex flex-col max-h-[90vh]">
-        
-        <button onclick="closePropertyModal()" class="absolute top-4 right-4 z-20 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-md transition">
-            <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-
-        <div id="modal-content" class="overflow-y-auto scrollbar-hide">
+    <div id="property-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div onclick="closePropertyModal()" class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+        <div class="relative bg-slate-900 w-full max-w-lg rounded-2xl border border-slate-700 shadow-2xl overflow-hidden transform transition-all scale-100 flex flex-col max-h-[90vh]">
+            <button onclick="closePropertyModal()" class="absolute top-4 right-4 z-20 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-md transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modal-content" class="overflow-y-auto scrollbar-hide"></div>
+            <div class="p-4 border-t border-slate-800 bg-slate-900 z-10 flex gap-3">
+                <a href="tel:08036732386" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition border border-slate-700">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Call
+                </a>
+                <a href="https://wa.me/2348036732386" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition shadow-lg shadow-purple-900/20">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                </a>
             </div>
-
-        <div class="p-4 border-t border-slate-800 bg-slate-900 z-10 flex gap-3">
-            <a href="tel:08036732386" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition border border-slate-700">
-                <i data-lucide="phone" class="w-4 h-4"></i> Call
-            </a>
-            <a href="https://wa.me/2348036732386" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition shadow-lg shadow-purple-900/20">
-                <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
-            </a>
         </div>
     </div>
-</div>
 
     <script>
         // --- DATA ---
@@ -230,7 +220,6 @@
             initial: 47603016, 
             percent: '30%', 
             balance: 111073704, 
-            // Since this plan varies (15% then 10%), we use a schedule array
             schedule: [
                 { month: 'Month 0', amount: 47603016, note: '30% Initial' },
                 { month: 'Month 1', amount: 23801508, note: '15%' },
@@ -240,7 +229,7 @@
                 { month: 'Month 5', amount: 15867672, note: '10%' },
                 { month: 'Month 6', amount: 15867672, note: '10%' }
             ],
-            monthly: 18512284 // Kept as an average for backward compatibility
+            monthly: 18512284 
         },
         { 
             duration: '12 Months', 
@@ -248,7 +237,6 @@
             initial: 57123619.2, 
             percent: '30%', 
             balance: 133288444.8, 
-            // This plan is Quarterly, not monthly
             schedule: [
                 { month: 'Month 0', amount: 57123619.2, note: '30% Initial' },
                 { month: 'Month 3', amount: 38082412.8, note: '20%' },
@@ -256,7 +244,7 @@
                 { month: 'Month 9', amount: 28561809.6, note: '15%' },
                 { month: 'Month 12', amount: 28561809.6, note: '15%' }
             ],
-            monthly: 11107370.4 // Kept as an average for backward compatibility
+            monthly: 11107370.4 
         }
             
         ] },
@@ -267,7 +255,6 @@
             initial: 93077419, 
             percent: '30%', 
             balance: 217180644.4, 
-            // Since this plan varies (15% then 10%), we use a schedule array
             schedule: [
                 { month: 'Month 0', amount: 93077419, note: '30% Initial' },
                 { month: 'Month 1', amount: 46538709.5, note: '15%' },
@@ -277,7 +264,7 @@
                 { month: 'Month 5', amount: 31025806.3, note: '10%' },
                 { month: 'Month 6', amount: 31025806.3, note: '10%' }
             ],
-            monthly: 51709677.20 // Kept as an average for backward compatibility
+            monthly: 51709677.20 
         },
         { 
             duration: '12 Months', 
@@ -285,7 +272,6 @@
             initial: 111692903, 
             percent: '30%', 
             balance: 260616773, 
-            // This plan is Quarterly, not monthly
             schedule: [
                 { month: 'Month 0', amount: 111692903, note: '30% Initial' },
                 { month: 'Month 3', amount: 74461935.2, note: '20%' },
@@ -293,26 +279,21 @@
                 { month: 'Month 9', amount: 55846451.4, note: '15%' },
                 { month: 'Month 12', amount: 55846451.4, note: '15%' }
             ],
-            monthly: 31025806.35 // Kept as an average for backward compatibility
+            monthly: 31025806.35 
         }
             
         ] },
             { id: 7, title: '5 Bedroom Semi-Detached Duplex + 1BQ', location: 'Plot 1797 Cadastral Zone B03 Wuye District', price: 394757922.3, type: 'Signature Residence by Mshel Homes', typeColor: 'bg-green-600', beds: 5, baths: 6, sqm: 300, image: '7.png', tag: 'FCDA APPROVED',paymentPlans: [
             { duration: '6 Months', total: 394757922, initial: 118427376, percent: '30%', balance: 276330546, monthly: 46055100 },
             { duration: '12 Months', total: 473709507, initial: 142112852, percent: '30%', balance: 331596655 , monthly: 27633054 },
-            
-            
         ] },
             { id: 8, title: '4 Bedroom Semi-Detached Duplex', location: 'Hutu Exclusive Golf Resort Estate by Mshel', price: 120000000, type: 'Hutu Exclusive Golf Resort Estate', typeColor: 'bg-purple-600', beds: 4, baths: 5, sqm: 250, image: '8.png', tag: 'ESTATE LAND',paymentPlans: [
             { duration: '4 Months', total: 15552000, initial: 7776000, percent: '50%', balance: 7776000, monthly: 1944000 },
             { duration: '8 Months', total: 17418240, initial: 5225472, percent: '30%', balance: 12192768, monthly: 1524096 },
-
-        
         ] },
             { id: 9, title: '4 Bedroom Semi-Detached Duplex', location: 'Hutu Exclusive Golf Resort Estate by Mshel', price: 21772800, type: 'Hutu Exclusive Golf Resort Estate', typeColor: 'bg-purple-600', beds: 4, baths: 5, sqm: 350, image: '9.png', tag: 'ESTATE LAND',paymentPlans: [
             { duration: '4 Months', total: 21772800, initial: 10886400, percent: '50%', balance: 10886400, monthly: 2721600 },
             { duration: '8 Months', total: 24385536, initial: 7315660.80, percent: '30%', balance: 17069875.20, monthly: 2133734.40 },
-            
         ] },
             { id: 10, title: '5 Bedroom Fully-Detached Duplex', location: 'Hutu Exclusive Golf Resort Estate by Mshel', price: 31104000, type: 'Hutu Exclusive Golf Resort Estate', typeColor: 'bg-purple-600', beds: 5, baths: 6, sqm: 500, image: '10.png', tag: 'ESTATE LAND',paymentPlans: [
             { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
@@ -323,61 +304,52 @@
             { id: 11, title: '3 Bedroom Terrace Duplex', location: 'Hutu Exclusive Golf Resort Estate by Mshel', price: 9331200, type: 'Hutu Exclusive Golf Resort Estate', typeColor: 'bg-purple-600', beds: 3, baths: 3, sqm: 150, image: '11.png', tag: 'ESTATE LAND',paymentPlans: [
             { duration: '4 Months', total: 9331200, initial: 4665600, percent: '50%', balance: 4665600, monthly: 1166400 },
             { duration: '8 Months', total: 10450944, initial: 3135283.20, percent: '30%', balance: 7315660.80, monthly: 9144457.60 },
-            
         ] },
             { id: 12, title: '3 Bedroom Terrace Duplex', location: 'Plot 138 Kunape, Bwari FCT', price: 2040188, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 3, baths: 3, sqm: 150, image: '11.png', tag: 'LUXURY',paymentPlans: [
             { duration: '6 Months', total: 2040188, initial: 408038, percent: '20%', balance: 1632150, monthly: 272025 },
             { duration: '12 Months', total: 2448226 , initial: 489645, percent: '30%', balance: 1958581, monthly: 163216 },
             { duration: '18 Months', total: 2652244 , initial: 530449, percent: '30%', balance: 2121795, monthly: 117878 },
         ] },
-            { id: 13, title: '1 Bedroom Apartment', location: 'Plot 138 Kunape Bwari FCT', price: 9000000, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 1, baths: 1, sqm: 100, image: '13.png', tag: 'FCDA APPROVED',paymentPlans: [
-            { 
-            duration: '6 Months', 
-            total: 310258063.4, 
-            initial: 93077419, 
-            percent: '30%', 
-            balance: 217180644.4, 
-            // Since this plan varies (15% then 10%), we use a schedule array
-            schedule: [
-                { month: 'Month 0', amount: 93077419, note: '30% Initial' },
-                { month: 'Month 1', amount: 46538709.5, note: '15%' },
-                { month: 'Month 2', amount: 46538709.5, note: '15%' },
-                { month: 'Month 3', amount: 31025806.3, note: '10%' },
-                { month: 'Month 4', amount: 31025806.3, note: '10%' },
-                { month: 'Month 5', amount: 31025806.3, note: '10%' },
-                { month: 'Month 6', amount: 31025806.3, note: '10%' }
-            ],
-            monthly: 51709677.20 // Kept as an average for backward compatibility
-        },
         { 
-            duration: '12 Months', 
-            total: 372309676, 
-            initial: 111692903, 
-            percent: '30%', 
-            balance: 260616773, 
-            // This plan is Quarterly, not monthly
-            schedule: [
-                { month: 'Month 0', amount: 111692903, note: '30% Initial' },
-                { month: 'Month 3', amount: 74461935.2, note: '20%' },
-                { month: 'Month 6', amount: 74461935.2, note: '20%' },
-                { month: 'Month 9', amount: 55846451.4, note: '15%' },
-                { month: 'Month 12', amount: 55846451.4, note: '15%' }
-            ],
-            monthly: 31025806.35 // Kept as an average for backward compatibility
-        }
-            
-        ] },
+            id: 13, 
+            title: '1 Bedroom Apartment', 
+            location: 'Plot 138 Kunape Bwari FCT', 
+            price: 9000000, 
+            type: 'Hedge Court by Mshel Homes', 
+            typeColor: 'bg-red-600', 
+            beds: 1, 
+            baths: 1, 
+            sqm: 100, 
+            image: '13.png', 
+            tag: 'FCDA APPROVED',
+            paymentPlans: [
+                { 
+                    duration: '6 Months', 
+                    total: 9000000, 
+                    initial: 2700000, 
+                    percent: '30%', 
+                    balance: 6300000, 
+                    monthly: 1050000 
+                },
+                { 
+                    duration: '12 Months', 
+                    total: 10800000, 
+                    initial: 3240000, 
+                    percent: '30%', 
+                    balance: 7560000, 
+                    monthly: 630000 
+                }
+            ] 
+        },
             { id: 14, title: '5 Bedroom Fully-Detached Duplex', location: 'Plot 138 Kunape Bwari FCT', price: 6890000, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 5, baths: 5, sqm: 500, image: '14.png', tag: 'FCDA APPROVED',paymentPlans: [
             { duration: '6 Months', total: 6890000, initial: 1378000, percent: '20%', balance: 5512000, monthly: 918667 },
             { duration: '12 Months', total: 8268000 , initial: 1653600, percent: '20%', balance: 6614400, monthly: 551200 },
             { duration: '18 Months', total: 8957000 , initial: 1791400, percent: '20%', balance: 7165600, monthly: 398089 },
-
         ] },
             { id: 15, title: '4 Bedroom Terrace Duplex', location: 'Plot 138 Kunape Bwari FCT', price: 2720250, type: 'Hedge Court by Mshel Homes', typeColor: 'bg-red-600', beds: 4, baths: 4, sqm: 200, image: '15.png', tag: 'LUXURY',paymentPlans: [
             { duration: '6 Months', total: 2720250, initial: 544050, percent: '20%', balance: 2176200, monthly: 362700 },
             { duration: '12 Months', total: 3264300, initial: 652860, percent: '20%', balance: 2611440, monthly: 217620 },
             { duration: '18 Months', total: 356325 , initial: 707265, percent: '20%', balance: 2829060, monthly: 157170 },
-            
         ] },
             { id: 16, title: '4 Bedroom Pent House', location: 'Lugbe, Airport Road', price: 120000000, type: 'Sale', typeColor: 'bg-purple-600', beds: 3, baths: 4, sqm: 250, image: '16.png', tag: 'LUXURY',paymentPlans: [
             { duration: '4 Months', total: 9575000, initial: 2872500, percent: '30%', balance: 6702500, monthly: 1675625 },
@@ -391,7 +363,7 @@
         const NAV_ITEMS = [
             { id: 'home', icon: 'home', label: 'Home' },
             { id: 'services', icon: 'briefcase', label: 'Services' }, // Was Explore
-            { id: 'projects', icon: 'hard-hat', label: 'Projects' }, // Was Wallet
+            { id: 'projects', icon: 'bar-chart-2', label: 'Projects' }, // Changed Icon to Graph
             { id: 'contact', icon: 'phone', label: 'Contact' }, // Was Me
         ];
 
@@ -431,14 +403,14 @@
                         </p>
                     </div>
                     <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-    <div class="w-12 h-12 bg-green-600/20 text-green-500 rounded-xl flex items-center justify-center mb-4">
-        <i data-lucide="wheat" class="w-6 h-6"></i>
-    </div>
-    <h3 class="text-lg font-bold text-white mb-2">Agricultural Input Supply</h3>
-    <p class="text-sm text-slate-400 leading-relaxed">
-        Participating supplier for the National Agricultural Growth Scheme (NAGS-AP) and Bank of Agriculture. We provide fertilizers, seeds, and agro-chemicals for the 2025/2026 Dry Season programmes covering Wheat, Rice, Maize, and Cassava.
-    </p>
-</div>
+                        <div class="w-12 h-12 bg-green-600/20 text-green-500 rounded-xl flex items-center justify-center mb-4">
+                            <i data-lucide="wheat" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Agricultural Input Supply</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Participating supplier for the National Agricultural Growth Scheme (NAGS-AP) and Bank of Agriculture. We provide fertilizers, seeds, and agro-chemicals for the 2025/2026 Dry Season programmes covering Wheat, Rice, Maize, and Cassava.
+                        </p>
+                    </div>
                 </div>
             `;
         }
@@ -492,190 +464,354 @@
             `;
         }
 
-        function getListingsHTML() {
-    return `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">` + PROPERTIES.map(prop => `
-        <div onclick="openPropertyModal(${prop.id})" class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition duration-300 shadow-lg group cursor-pointer relative flex flex-col h-full fade-in hover:-translate-y-1">
-            <div class="relative h-52 w-full overflow-hidden">
-                <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
-                <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur px-2.5 py-1 rounded-lg text-[10px] font-bold text-white uppercase tracking-wider shadow-sm border border-slate-700">${prop.tag}</div>
-                <div class="absolute bottom-3 left-3 flex items-center gap-2">
-                     <span class="text-[10px] font-bold px-2 py-1 rounded-md text-white ${prop.typeColor} shadow-md">${prop.type}</span>
-                </div>
-            </div>
-            <div class="p-4 flex flex-col flex-1">
-                <h3 class="text-white font-semibold text-lg truncate mb-1">${prop.title}</h3>
-                <div class="flex items-center text-slate-400 text-sm mb-3">
-                    <i data-lucide="map-pin" class="w-3 h-3 mr-1.5 text-purple-500"></i>${prop.location}
-                </div>
-                <div class="flex justify-between items-center mt-auto pt-3 border-t border-slate-700/50">
-                    <div class="text-white font-bold text-lg">${formatCurrency(prop.price)}<span class="text-xs text-slate-500 font-normal">${prop.period || ''}</span></div>
-                    <button class="bg-slate-700 text-white p-2 rounded-lg hover:bg-purple-600 transition"><i data-lucide="eye" class="w-4 h-4"></i></button>
-                </div>
-            </div>
-        </div>
-    `).join('') + `</div>`;
-}
-function openPropertyModal(id) {
-    const prop = PROPERTIES.find(p => p.id === id);
-    if (!prop) return;
-
-    const modal = document.getElementById('property-modal');
-    const content = document.getElementById('modal-content');
-
-    // Generate Payment Plan Table HTML
-    let paymentTableHTML = '';
-    if (prop.paymentPlans && prop.paymentPlans.length > 0) {
-        
-        const rows = prop.paymentPlans.map(plan => {
-            
-            // 1. The Main Summary Row
-            const mainRow = `
-                <tr class="border-b border-slate-700/50 hover:bg-slate-800/50 transition relative z-10">
-                    <td class="p-3 text-white font-bold bg-slate-800/30 align-top">${plan.duration}</td>
-                    <td class="p-3 text-slate-300 whitespace-nowrap align-top">${formatCurrency(plan.total)}</td>
-                    <td class="p-3 text-slate-300 align-top">
-                        <div class="flex flex-col">
-                            <span>${formatCurrency(plan.initial)}</span>
-                            <span class="text-[10px] text-purple-400 font-bold">${plan.percent}</span>
-                        </div>
-                    </td>
-                    <td class="p-3 text-slate-300 whitespace-nowrap align-top">${formatCurrency(plan.balance)}</td>
-                    <td class="p-3 text-white font-semibold whitespace-nowrap bg-purple-500/10 align-top">
-                        <div class="flex flex-col">
-                            <span>${formatCurrency(plan.monthly)}</span>
-                            ${plan.schedule ? '<span class="text-[10px] text-slate-400 font-normal italic">(Average)</span>' : ''}
-                        </div>
-                    </td>
-                </tr>
-            `;
-
-            // 2. The Detailed Schedule Row (Only renders if 'schedule' exists)
-            let scheduleRow = '';
-            if (plan.schedule && plan.schedule.length > 0) {
-                const scheduleItems = plan.schedule.map(item => `
-                    <div class="flex justify-between items-center p-2 bg-slate-900/80 rounded border border-slate-700/50">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs text-slate-300 font-bold">${item.month}</span>
-                            <span class="text-[9px] text-purple-300 bg-purple-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">${item.note}</span>
-                        </div>
-                        <span class="text-xs text-white font-mono">${formatCurrency(item.amount)}</span>
+        // --- NEW: DYNAMIC CHART.JS CONTENT ---
+        function getProjectsHTML() {
+            return `
+                <div class="fade-in space-y-8 pb-20">
+                    <div class="text-center">
+                        <h2 class="text-2xl font-bold text-white mb-2">Market Analytics</h2>
+                        <p class="text-slate-400 text-sm">Data-driven insights into our property portfolio.</p>
                     </div>
-                `).join('');
 
-                scheduleRow = `
-                    <tr class="bg-slate-800/20">
-                        <td colspan="5" class="p-3 border-b border-slate-700/50">
-                            <div class="text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1">Payment Breakdown</div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                ${scheduleItems}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-800 rounded-2xl p-4 border border-slate-700 shadow-lg">
+                            <h3 class="text-white font-semibold mb-4 ml-2 border-l-4 border-purple-500 pl-2">Average Price by Project</h3>
+                            <div class="relative h-64 w-full">
+                                <canvas id="chartTypePrice"></canvas>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+
+                        <div class="bg-slate-800 rounded-2xl p-4 border border-slate-700 shadow-lg">
+                            <h3 class="text-white font-semibold mb-4 ml-2 border-l-4 border-blue-500 pl-2">Price vs. Bedroom Count</h3>
+                            <div class="relative h-64 w-full">
+                                <canvas id="chartPriceBeds"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800 rounded-2xl p-4 border border-slate-700 shadow-lg md:col-span-2 md:w-3/4 md:mx-auto">
+                            <h3 class="text-white font-semibold mb-4 ml-2 border-l-4 border-green-500 pl-2 text-center">Portfolio Tag Distribution</h3>
+                            <div class="relative h-64 w-full flex justify-center">
+                                <canvas id="chartTags"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-900/20 border border-blue-500/30 p-6 rounded-2xl mt-8">
+                        <h4 class="text-blue-400 font-bold mb-2 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4"></i> Analyst Note</h4>
+                        <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+                            <li><strong>Premium Range:</strong> Our <span class="text-white font-semibold">Signature Residence</span> line commands the highest market value, ideal for high-net-worth investors in Wuye.</li>
+                            <li><strong>Entry Level:</strong> <span class="text-white font-semibold">Hedge Court</span> offers the most accessible entry point (under ₦10M) in Bwari.</li>
+                            <li><strong>Inventory Mix:</strong> The majority of our portfolio is <span class="text-green-400">FCDA Approved</span>, ensuring secure title documentation.</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- CHART RENDERING LOGIC ---
+        function renderCharts() {
+            // Configure Global Chart.js defaults for Dark Mode
+            Chart.defaults.color = '#94a3b8'; // text-slate-400
+            Chart.defaults.borderColor = '#334155'; // border-slate-700
+            Chart.defaults.font.family = "'Inter', sans-serif";
+
+            // 1. Prepare Data for Type vs Price
+            const typeGroups = {};
+            PROPERTIES.forEach(p => {
+                // Simplify type name (remove extra descriptions after ' - ' or ' by ')
+                let shortType = p.type.split(' - ')[0].replace(' by Mshel Homes', '');
+                if (!typeGroups[shortType]) typeGroups[shortType] = { sum: 0, count: 0 };
+                typeGroups[shortType].sum += p.price;
+                typeGroups[shortType].count += 1;
+            });
+            const typeLabels = Object.keys(typeGroups);
+            const typePrices = typeLabels.map(t => typeGroups[t].sum / typeGroups[t].count);
+
+            new Chart(document.getElementById('chartTypePrice'), {
+                type: 'bar',
+                data: {
+                    labels: typeLabels,
+                    datasets: [{
+                        label: 'Avg Price (₦)',
+                        data: typePrices,
+                        backgroundColor: '#a855f7', // purple-500
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return formatCurrency(context.raw);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { callback: (value) => '₦' + (value / 1000000).toFixed(0) + 'M' }
+                        },
+                        x: {
+                            ticks: { font: { size: 10 }, maxRotation: 45, minRotation: 45 }
+                        }
+                    }
+                }
+            });
+
+            // 2. Prepare Data for Price vs Beds (Scatter)
+            const scatterData = PROPERTIES.map(p => ({
+                x: p.beds,
+                y: p.price,
+                title: p.title // custom data for tooltip
+            }));
+
+            new Chart(document.getElementById('chartPriceBeds'), {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Properties',
+                        data: scatterData,
+                        backgroundColor: '#3b82f6', // blue-500
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return `${point.title}: ${formatCurrency(point.y)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Bedrooms' },
+                            ticks: { stepSize: 1 }
+                        },
+                        y: {
+                            title: { display: true, text: 'Price' },
+                            ticks: { callback: (value) => '₦' + (value / 1000000).toFixed(0) + 'M' }
+                        }
+                    }
+                }
+            });
+
+            // 3. Prepare Data for Tags (Doughnut)
+            const tagCounts = {};
+            PROPERTIES.forEach(p => {
+                const tag = p.tag || 'Other';
+                tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('chartTags'), {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(tagCounts),
+                    datasets: [{
+                        data: Object.values(tagCounts),
+                        backgroundColor: ['#22c55e', '#a855f7', '#f97316', '#3b82f6'], // green, purple, orange, blue
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+        }
+
+        function getListingsHTML() {
+            return `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">` + PROPERTIES.map(prop => `
+                <div onclick="openPropertyModal(${prop.id})" class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-purple-500/50 transition duration-300 shadow-lg group cursor-pointer relative flex flex-col h-full fade-in hover:-translate-y-1">
+                    <div class="relative h-52 w-full overflow-hidden">
+                        <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out">
+                        <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur px-2.5 py-1 rounded-lg text-[10px] font-bold text-white uppercase tracking-wider shadow-sm border border-slate-700">${prop.tag}</div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2">
+                             <span class="text-[10px] font-bold px-2 py-1 rounded-md text-white ${prop.typeColor} shadow-md">${prop.type}</span>
+                        </div>
+                    </div>
+                    <div class="p-4 flex flex-col flex-1">
+                        <h3 class="text-white font-semibold text-lg truncate mb-1">${prop.title}</h3>
+                        <div class="flex items-center text-slate-400 text-sm mb-3">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1.5 text-purple-500"></i>${prop.location}
+                        </div>
+                        <div class="flex justify-between items-center mt-auto pt-3 border-t border-slate-700/50">
+                            <div class="text-white font-bold text-lg">${formatCurrency(prop.price)}<span class="text-xs text-slate-500 font-normal">${prop.period || ''}</span></div>
+                            <button class="bg-slate-700 text-white p-2 rounded-lg hover:bg-purple-600 transition"><i data-lucide="eye" class="w-4 h-4"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('') + `</div>`;
+        }
+        
+        function openPropertyModal(id) {
+            const prop = PROPERTIES.find(p => p.id === id);
+            if (!prop) return;
+
+            const modal = document.getElementById('property-modal');
+            const content = document.getElementById('modal-content');
+
+            // Generate Payment Plan Table HTML
+            let paymentTableHTML = '';
+            if (prop.paymentPlans && prop.paymentPlans.length > 0) {
+                
+                const rows = prop.paymentPlans.map(plan => {
+                    const mainRow = `
+                        <tr class="border-b border-slate-700/50 hover:bg-slate-800/50 transition relative z-10">
+                            <td class="p-3 text-white font-bold bg-slate-800/30 align-top">${plan.duration}</td>
+                            <td class="p-3 text-slate-300 whitespace-nowrap align-top">${formatCurrency(plan.total)}</td>
+                            <td class="p-3 text-slate-300 align-top">
+                                <div class="flex flex-col">
+                                    <span>${formatCurrency(plan.initial)}</span>
+                                    <span class="text-[10px] text-purple-400 font-bold">${plan.percent}</span>
+                                </div>
+                            </td>
+                            <td class="p-3 text-slate-300 whitespace-nowrap align-top">${formatCurrency(plan.balance)}</td>
+                            <td class="p-3 text-white font-semibold whitespace-nowrap bg-purple-500/10 align-top">
+                                <div class="flex flex-col">
+                                    <span>${formatCurrency(plan.monthly)}</span>
+                                    ${plan.schedule ? '<span class="text-[10px] text-slate-400 font-normal italic">(Average)</span>' : ''}
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+
+                    let scheduleRow = '';
+                    if (plan.schedule && plan.schedule.length > 0) {
+                        const scheduleItems = plan.schedule.map(item => `
+                            <div class="flex justify-between items-center p-2 bg-slate-900/80 rounded border border-slate-700/50">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs text-slate-300 font-bold">${item.month}</span>
+                                    <span class="text-[9px] text-purple-300 bg-purple-500/20 px-1.5 py-0.5 rounded uppercase tracking-wider">${item.note}</span>
+                                </div>
+                                <span class="text-xs text-white font-mono">${formatCurrency(item.amount)}</span>
+                            </div>
+                        `).join('');
+
+                        scheduleRow = `
+                            <tr class="bg-slate-800/20">
+                                <td colspan="5" class="p-3 border-b border-slate-700/50">
+                                    <div class="text-[10px] uppercase font-bold text-slate-500 mb-2 pl-1">Payment Breakdown</div>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                        ${scheduleItems}
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                    return mainRow + scheduleRow;
+                }).join('');
+
+                paymentTableHTML = `
+                    <div class="mt-6">
+                        <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                            <i data-lucide="credit-card" class="w-4 h-4 text-purple-500"></i> Payment Schedule
+                        </h3>
+                        <div class="overflow-x-auto rounded-xl border border-slate-700 bg-slate-900/50">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-slate-800 text-slate-400 uppercase font-bold tracking-wider">
+                                    <tr>
+                                        <th class="p-3">Duration</th>
+                                        <th class="p-3">Total</th>
+                                        <th class="p-3">Initial Deposit</th>
+                                        <th class="p-3">Balance</th>
+                                        <th class="p-3">Monthly</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rows}
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-2 italic">* Prices subject to change based on market rates.</p>
+                    </div>
                 `;
             }
 
-            return mainRow + scheduleRow;
-        }).join('');
-
-        paymentTableHTML = `
-            <div class="mt-6">
-                <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="credit-card" class="w-4 h-4 text-purple-500"></i> Payment Schedule
-                </h3>
-                <div class="overflow-x-auto rounded-xl border border-slate-700 bg-slate-900/50">
-                    <table class="w-full text-left text-xs">
-                        <thead class="bg-slate-800 text-slate-400 uppercase font-bold tracking-wider">
-                            <tr>
-                                <th class="p-3">Duration</th>
-                                <th class="p-3">Total</th>
-                                <th class="p-3">Initial Deposit</th>
-                                <th class="p-3">Balance</th>
-                                <th class="p-3">Monthly</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${rows}
-                        </tbody>
-                    </table>
-                </div>
-                <p class="text-[10px] text-slate-500 mt-2 italic">* Prices subject to change based on market rates.</p>
-            </div>
-        `;
-    }
-
-    // Populate Modal HTML
-    content.innerHTML = `
-        <div class="relative h-64 w-full group">
-            <img src="${prop.image}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 right-4">
-                <span class="${prop.typeColor} text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block shadow-lg border border-white/10">${prop.type}</span>
-                <h2 class="text-2xl font-bold text-white leading-tight mb-1">${prop.title}</h2>
-                <div class="flex items-center text-slate-300 text-sm">
-                    <i data-lucide="map-pin" class="w-3 h-3 mr-1.5 text-purple-400"></i> ${prop.location}
-                </div>
-            </div>
-        </div>
-        
-        <div class="p-6 space-y-6">
-            <div class="grid grid-cols-3 gap-3">
-                <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
-                    <i data-lucide="bed" class="w-5 h-5 text-purple-500 mx-auto mb-1"></i>
-                    <p class="text-lg font-bold text-white">${prop.beds}</p>
-                    <p class="text-[10px] text-slate-400">Beds</p>
-                </div>
-                <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
-                    <i data-lucide="bath" class="w-5 h-5 text-blue-500 mx-auto mb-1"></i>
-                    <p class="text-lg font-bold text-white">${prop.baths}</p>
-                    <p class="text-[10px] text-slate-400">Baths</p>
-                </div>
-                <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
-                    <i data-lucide="maximize" class="w-5 h-5 text-orange-500 mx-auto mb-1"></i>
-                    <p class="text-lg font-bold text-white">${prop.sqm}</p>
-                    <p class="text-[10px] text-slate-400">Sqm</p>
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between p-4 bg-gradient-to-r from-slate-800 to-slate-800/50 rounded-xl border border-slate-700/50">
-                <div>
-                    <p class="text-xs text-slate-400 mb-0.5">Total Package Price</p>
-                    <p class="text-xl font-bold text-white">${formatCurrency(prop.price)}</p>
-                </div>
-                <div class="text-right">
-                    <div class="flex items-center gap-1.5 bg-green-500/10 px-2 py-1 rounded-lg border border-green-500/20">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        <span class="text-xs font-bold text-green-400">Available</span>
+            content.innerHTML = `
+                <div class="relative h-64 w-full group">
+                    <img src="${prop.image}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="${prop.typeColor} text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block shadow-lg border border-white/10">${prop.type}</span>
+                        <h2 class="text-2xl font-bold text-white leading-tight mb-1">${prop.title}</h2>
+                        <div class="flex items-center text-slate-300 text-sm">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1.5 text-purple-400"></i> ${prop.location}
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="p-6 space-y-6">
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
+                            <i data-lucide="bed" class="w-5 h-5 text-purple-500 mx-auto mb-1"></i>
+                            <p class="text-lg font-bold text-white">${prop.beds}</p>
+                            <p class="text-[10px] text-slate-400">Beds</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
+                            <i data-lucide="bath" class="w-5 h-5 text-blue-500 mx-auto mb-1"></i>
+                            <p class="text-lg font-bold text-white">${prop.baths}</p>
+                            <p class="text-[10px] text-slate-400">Baths</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-xl text-center border border-slate-700/50">
+                            <i data-lucide="maximize" class="w-5 h-5 text-orange-500 mx-auto mb-1"></i>
+                            <p class="text-lg font-bold text-white">${prop.sqm}</p>
+                            <p class="text-[10px] text-slate-400">Sqm</p>
+                        </div>
+                    </div>
 
-            <div>
-                <h3 class="text-white font-semibold mb-2">Description</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Experience luxury living in this exceptional property located in the heart of ${prop.location}. 
-                    Perfect for families or investors looking for high ROI. Features modern amenities, 24/7 power supply, and top-tier security.
-                </p>
-            </div>
+                    <div class="flex items-center justify-between p-4 bg-gradient-to-r from-slate-800 to-slate-800/50 rounded-xl border border-slate-700/50">
+                        <div>
+                            <p class="text-xs text-slate-400 mb-0.5">Total Package Price</p>
+                            <p class="text-xl font-bold text-white">${formatCurrency(prop.price)}</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="flex items-center gap-1.5 bg-green-500/10 px-2 py-1 rounded-lg border border-green-500/20">
+                                <span class="relative flex h-2 w-2">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                </span>
+                                <span class="text-xs font-bold text-green-400">Available</span>
+                            </div>
+                        </div>
+                    </div>
 
-            ${paymentTableHTML}
-        </div>
-    `;
-    
-    // IMPORTANT: Re-initialize icons because we injected new HTML
-    lucide.createIcons();
+                    <div>
+                        <h3 class="text-white font-semibold mb-2">Description</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Experience luxury living in this exceptional property located in the heart of ${prop.location}. 
+                            Perfect for families or investors looking for high ROI. Features modern amenities, 24/7 power supply, and top-tier security.
+                        </p>
+                    </div>
 
-    // --- FIX: SHOW THE MODAL ---
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Stop background scrolling
-}
-function closePropertyModal() {
-    const modal = document.getElementById('property-modal');
-    modal.classList.add('hidden');
-    document.body.style.overflow = ''; // Re-enable scrolling
-}
+                    ${paymentTableHTML}
+                </div>
+            `;
+            
+            lucide.createIcons();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closePropertyModal() {
+            const modal = document.getElementById('property-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; 
+        }
 
         // --- CORE LOGIC ---
 
@@ -722,7 +858,9 @@ function closePropertyModal() {
                 dynamicArea.innerHTML = getContactHTML();
             } else if (tabId === 'projects') {
                 homeSections.classList.add('hidden');
-                dynamicArea.innerHTML = `<div class="text-center py-20 fade-in"><i data-lucide="hard-hat" class="w-16 h-16 text-slate-700 mx-auto mb-4"></i><h2 class="text-xl text-white font-bold">Projects Loading...</h2><p class="text-slate-400">Our portfolio is being updated.</p></div>`;
+                dynamicArea.innerHTML = getProjectsHTML();
+                // RENDER CHARTS
+                setTimeout(renderCharts, 100); 
             }
 
             renderNavs();
