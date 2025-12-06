@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Heartline Dynamics LTD</title>
     
+    <title>Heartline Dynamics LTD | Real Estate, Construction & Finance</title>
+    <meta name="description" content="Heartline Dynamics LTD: Delivering exceptional excellence in Real Estate Development, Affordable Housing, Construction, and Agricultural investments in Nigeria (Lagos, Abuja, Kano).">
+    <meta name="keywords" content="Real Estate Nigeria, Mshel Homes, Abuja Housing, Lagos Land, Construction Company, Property Investment, Heartline Dynamics">
+    <meta name="author" content="Heartline Dynamics LTD">
+    <link rel="canonical" href="https://heartlinedynamics.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heartlinedynamics.com/">
+    <meta property="og:title" content="Heartline Dynamics LTD - Premium Real Estate Solutions">
+    <meta property="og:description" content="Secure affordable housing, mortgage support, and premium real estate investments in Abuja and Lagos.">
+    <meta property="og:image" content="https://heartlinedynamics.com/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://heartlinedynamics.com/">
+    <meta property="twitter:title" content="Heartline Dynamics LTD">
+    <meta property="twitter:description" content="Delivering Exceptional Excellence in Real Estate and Construction across Nigeria.">
+    <meta property="twitter:image" content="https://heartlinedynamics.com/og-image.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
+    <link rel="icon" type="image/png" href="favicon.png"> <style>
+        /* Your existing styles remain here... */
         body { font-family: 'Inter', sans-serif; background-color: #020617; -webkit-tap-highlight-color: transparent; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -31,7 +46,19 @@
     </style>
 </head>
 <body class="text-slate-200">
-
+<noscript>
+    <div style="padding: 20px; background: white; color: black;">
+        <h1>Heartline Dynamics LTD</h1>
+        <p>We provide exceptional real estate solutions in Nigeria.</p>
+        <h2>Our Properties</h2>
+        <ul>
+            <li>4 Bedroom Semi-Detached in Guzape - ₦142,986,960</li>
+            <li>3 Bedroom Pent House in Lugbe - ₦9,575,000</li>
+            <li>Signature Residence in Wuye - ₦158,676,720</li>
+            </ul>
+        <p>Please enable JavaScript to view our full interactive portfolio and mortgage calculators.</p>
+    </div>
+</noscript>
     <div id="app-container"> 
         
         <aside class="hidden md:flex fixed top-0 left-0 w-[250px] h-screen bg-slate-900 border-r border-slate-800 flex-col z-50">
@@ -372,6 +399,68 @@
             { duration: '6 Months Flexible Non-Fixed Payment', total: 88480000, }
         ] },
         ];
+        function generateStructuredData() {
+    // 1. Organization Schema
+    const orgSchema = {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Heartline Dynamics LTD",
+        "image": "https://heartlinedynamics.com/logo.png",
+        "description": "Real Estate Development, Construction, and Agricultural Investment company.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Abuja",
+            "addressCountry": "NG"
+        },
+        "telephone": "+2348036732386",
+        "priceRange": "₦₦"
+    };
+
+    // 2. Real Estate Listing Schema (Dynamic from your array)
+    const listingsSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": PROPERTIES.map((prop, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "SingleFamilyResidence", // Or Residence/Apartment based on logic
+                "name": prop.title,
+                "description": `Luxury ${prop.type} located at ${prop.location}. Features ${prop.beds} beds and ${prop.baths} baths.`,
+                "image": `https://heartlinedynamics.com/${prop.image}`,
+                "numberOfRooms": prop.beds,
+                "numberOfBathroomsTotal": prop.baths,
+                "floorSize": {
+                    "@type": "QuantitativeValue",
+                    "value": prop.sqm,
+                    "unitCode": "SQM"
+                },
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": prop.location,
+                    "addressCountry": "NG"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": prop.price,
+                    "priceCurrency": "NGN",
+                    "availability": "https://schema.org/InStock"
+                }
+            }
+        }))
+    };
+
+    // Inject into Head
+    const orgScript = document.createElement('script');
+    orgScript.type = 'application/ld+json';
+    orgScript.text = JSON.stringify(orgSchema);
+    document.head.appendChild(orgScript);
+
+    const listScript = document.createElement('script');
+    listScript.type = 'application/ld+json';
+    listScript.text = JSON.stringify(listingsSchema);
+    document.head.appendChild(listScript);
+}
 
         // Updated Navigation for Heartline
         const NAV_ITEMS = [
@@ -882,7 +971,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            switchTab('home'); // Init
+            switchTab('home');
+            generateStructuredData(); // Init
         });
 
     </script>
